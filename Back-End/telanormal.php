@@ -1,15 +1,16 @@
 <?php
 session_start();
-if (!isset($_SESSION['usuario_id']) || $_SESSION['tipo_usuario'] != 'analista') {
+if (!isset($_SESSION['usuario_id'])) {
     header("Location: ../Front-End/index.html");
     exit();
 }
 
 // Conectar ao banco de dados
 include '../Back-End/db.php';
+$usuario_id = $_SESSION['usuario_id'];
 
-// Consultar todos os chamados
-$sql = "SELECT * FROM chamados";
+// Consultar os chamados do usuário
+$sql = "SELECT * FROM chamados WHERE usuario_id = $usuario_id";
 $result = $conn->query($sql);
 ?>
 
@@ -17,17 +18,16 @@ $result = $conn->query($sql);
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Todos os Chamados</title>
+    <title>Seus Chamados</title>
 </head>
 <body>
-<h2>Todos os Chamados</h2>
+<h2>Seus Chamados</h2>
 <table>
   <thead>
     <tr>
       <th>ID</th>
       <th>Título</th>
       <th>Status</th>
-      <th>Usuário</th>
       <th>Data de Criação</th>
     </tr>
   </thead>
@@ -37,11 +37,11 @@ $result = $conn->query($sql);
       <td><?php echo $row['id']; ?></td>
       <td><?php echo $row['titulo']; ?></td>
       <td><?php echo $row['status']; ?></td>
-      <td><?php echo $row['usuario_id']; ?></td>
       <td><?php echo $row['data_criacao']; ?></td>
     </tr>
     <?php } ?>
   </tbody>
 </table>
+<a href="../Front-End/newcall.html">Abrir Novo Chamado</a>
 </body>
 </html>

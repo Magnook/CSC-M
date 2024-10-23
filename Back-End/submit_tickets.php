@@ -1,34 +1,34 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
 session_start();
-include '../Back-End/db.php'; // Inclua o arquivo de conexão com o banco de dados
+include '../Back-End/db.php'; // Conexão com o banco de dados
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Coletar dados do formulário
-    $para = $_POST['para'];
-    $servico = $_POST['servico'];
-    $titulo = $_POST['titulo'];
-    $assunto = $_POST['assunto'];
-    $matricula = $_POST['matricula'];
-    $anexo = $_FILES['anexo']['name'];
-    $prioridade = $_POST['priority'];
+    // Coletando dados do formulário
+    $title = $_POST['title']; // Título do chamado
+    $servico = $_POST['servico']; // Serviço
+    $assunto = $_POST['assunto']; // Corpo do chamado
+    $matricula = $_POST['matricula']; // Matrícula do funcionário
+    $usuario_id = $_SESSION['usuario_id']; // ID do usuário logado
+    $status = 'aberto'; // Status inicial
 
-    // Lógica para fazer upload do anexo, se necessário
-    // move_uploaded_file($_FILES['anexo']['tmp_name'], "uploads/" . $anexo);
-
-    // Preparar e executar a inserção no banco de dados
-    $stmt = $conn->prepare("INSERT INTO chamados (para, servico, titulo, assunto, matricula, anexo, prioridade) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssssss", $para, $servico, $titulo, $assunto, $matricula, $anexo, $prioridade);
-
-    if ($stmt->execute()) {
-        echo "Chamado criado com sucesso.";
-    } else {
-        echo "Erro: " . $stmt->error;
+    // Verificar se um arquivo foi enviado
+    $anexo = '';
+    if (isset($_FILES['anexo']) && $_FILES['anexo']['error'] == 0) {
+        // Lógica para salvar o arquivo
+        $anexo = $_FILES['anexo']['name']; // Armazena o nome do arquivo
+        // Move o arquivo para um diretório (opcional)
+        move_uploaded_file($_FILES['anexo']['tmp_name'], "../uploads/" . $anexo);
     }
 
-    $stmt->close();
-}
+    // Preparar a consulta SQL para inserir o chamado
+    $query = "INSERT INTO chamados (title, servico, description, status, matricula, usuario_id, anexo) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("sssssiss", $title, $servico, $assunto, $status, $matricula, $usuario_id, $anexo); // Adicionei a descrição
 
-$conn->close();
+    if ($stmt->execute()) {
+        echo "Chamado criado com sucesso!";
+    } else {
+        echo "Erro ao criar chamado: " . $stmt->error;
+    }
+}
 ?>
