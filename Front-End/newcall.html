@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criação de Chamado</title>
+    <!-- CKEditor Script -->
+    <script src="https://cdn.ckeditor.com/4.22.0/standard/ckeditor.js"></script>
+    <style>
+        /* Ajuste do layout dos campos */
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label, input, select, textarea {
+            margin-bottom: 15px;
+            width: 100%;
+        }
+
+        button {
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Novo Chamado</h2>
+    <form action="../Back-End/submit_tickets.php" method="POST" enctype="multipart/form-data">
+        <!-- Campo PARA -->
+        <label for="para">Para:</label>
+        <select id="para" name="para" required>
+            <option value="T.I">T.I</option>
+            <option value="planejamento">Planejamento</option>
+            <option value="coordenacao">Coordenação</option>
+            <option value="manutencao">Manutenção</option>
+        </select>
+
+        <!-- Campo SERVIÇO -->
+        <label for="servico">Serviço:</label>
+        <select id="servico" name="servico" required>
+            <option value="Teclado">Teclado</option>
+            <option value="Perifericos">Periféricos</option>
+            <option value="Ar Condicionado">Ar Condicionado</option>
+        </select>
+
+        <!-- Campo TÍTULO (Título do Chamado) -->
+        <label for="assunto">Título do Chamado:</label>
+        <input type="text" id="titulo" name="titulo" required>
+
+        <!-- Campo ASSUNTO (CKEDITOR) -->
+        <input type="text" id="assunto" name="assunto" required>
+
+        <!-- Campo MAT -->
+        <label for="matricula">Matrícula do Funcionário:</label>
+        <input type="text" id="matricula" name="matricula" required>
+
+        <!-- Campo ANEXO -->
+        <label for="anexo">Anexo:</label>
+        <input type="file" id="anexo" name="anexo">
+
+        <!-- Campos adicionais como prioridade -->
+        <label for="priority">Prioridade:</label>
+        <select id="priority" name="priority" required>
+            <option value="baixa">Baixa</option>
+            <option value="media">Média</option>
+            <option value="alta">Alta</option>
+        </select>
+
+        <button type="submit">Abrir Chamado</button>
+    </form>
+
+    <!-- Inicializando o CKEditor -->
+    <script>
+        CKEDITOR.replace('assunto');
+    </script>
+</body>
+</html>
