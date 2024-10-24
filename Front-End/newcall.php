@@ -42,22 +42,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Criação de Chamado</title>
     <!-- CKEditor Script -->
     <script src="https://cdn.ckeditor.com/4.22.0/standard/ckeditor.js"></script>
-    <style>
-        /* Ajuste do layout dos campos */
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-
-        label, input, select, textarea {
-            margin-bottom: 15px;
-            width: 100%;
-        }
-
-        button {
-            width: 200px;
-        }
-    </style>
 </head>
 <body>
     <h2>Novo Chamado</h2>

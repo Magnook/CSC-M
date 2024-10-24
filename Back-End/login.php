@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../Back-End/db.php'; // Conexão com o banco de dados
+include 'db.php'; // Conexão com o banco de dados
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id = $_POST['username'];
@@ -13,6 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->execute();
     $result = $stmt->get_result();
 
+    // Verifica se o usuário foi encontrado
     if ($result->num_rows > 0) {
         // Usuário encontrado, agora verificar a senha
         $user = $result->fetch_assoc();
@@ -29,11 +30,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 header("Location: dashboard.php");
             }
             exit();
-        } else {
-            echo "Senha incorreta!";
         }
-    } else {
-        echo "Usuário não encontrado!";
     }
+    
+    // Mensagem de erro genérica
+    $_SESSION['error'] = 'Usuário ou senha incorretos!'; // Armazena a mensagem de erro
+    header('Location: ../Front-End/index.php'); // Redireciona para a página de login
+    exit();
 }
 ?>

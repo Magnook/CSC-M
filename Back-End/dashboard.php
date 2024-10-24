@@ -31,58 +31,42 @@ $result = $stmt->get_result();
     <title>Dashboard de Chamados</title>
     <link rel="stylesheet" href="../Front-End/styles.css">
 </head>
-<body>
-    <h2>Dashboard de Chamados</h2>
-    
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Título</th>
-                <th>Status</th>
-                <th>Data de Criação</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php while ($row = $result->fetch_assoc()) { ?>
-            <tr>
-                <td><?php echo $row['id']; ?></td>
-                <td><?php echo $row['titulo']; ?></td>
-                <td><?php echo $row['status']; ?></td>
-                <td><?php echo $row['data_criacao']; ?></td>
-            </tr>
-            <?php } ?>
-        </tbody>
-    </table>
-    <form method="GET" action="">
-    <label for="status">Filtrar por Status:</label>
-    <select id="status" name="status">
-        <option value="todos">Todos</option>
-        <option value="aberto">Abertos</option>
-        <option value="fechado">Fechados</option>
-    </select>
-    <button type="submit">Filtrar</button>
-</form>
+<body id="dashboard-body">
+    <div id="dashboard-container">
+        <h2 id="dashboard-title">Dashboard de Chamados</h2>
+        
+        <form method="GET" action="">
+            <label for="status">Filtrar por Status:</label>
+            <select id="status" name="status">
+                <option value="todos">Todos</option>
+                <option value="aberto">Abertos</option>
+                <option value="fechado">Fechados</option>
+            </select>
+            <button type="submit">Filtrar</button>
+        </form>
 
-<?php
-$status_filter = isset($_GET['status']) ? $_GET['status'] : 'todos';
+        <table id="dashboard-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Título</th>
+                    <th>Status</th>
+                    <th>Data de Criação</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php while ($row = $result->fetch_assoc()) { ?>
+                <tr>
+                    <td><?php echo $row['id']; ?></td>
+                    <td><?php echo $row['title']; ?></td>
+                    <td><?php echo $row['status']; ?></td>
+                    <td><?php echo $row['created_at']; ?></td>
+                </tr>
+                <?php } ?>
+            </tbody>
+        </table>
 
-if ($tipo_usuario == 'analista_ti') {
-    if ($status_filter == 'aberto') {
-        $query .= " WHERE status = 'aberto'";
-    } elseif ($status_filter == 'fechado') {
-        $query .= " WHERE status = 'fechado'";
-    }
-} else {
-    // Supervisores e Coordenadores: aplicar filtro também
-    if ($status_filter == 'aberto') {
-        $query .= " AND status = 'aberto'";
-    } elseif ($status_filter == 'fechado') {
-        $query .= " AND status = 'fechado'";
-    }
-}
-?>
-
-    <button onclick="window.location.href='../Front-End/newcall.php'">Abrir Novo Chamado</button>
+        <button onclick="window.location.href='../Front-End/newcall.php'">Abrir Novo Chamado</button>
+    </div>
 </body>
 </html>

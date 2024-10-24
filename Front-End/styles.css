@@ -1,122 +1,97 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
+/* Estilo geral para toda a página */
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #1b1b1b; /* Cor de fundo escura */
-    padding: 10px;
+    display: flex; /* Usar flexbox para centralização */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    height: 100vh; /* Altura total da tela */
+    background-color: #121212; /* Cor de fundo dark */
+    color: #ffffff; /* Cor de texto claro */
+    font-family: Arial, sans-serif;
+    margin: 0; /* Remove margens padrão */
 }
 
-.login-container {
-    background-color: #2c2c2c; /* Container de fundo mais escuro */
+/* Estilo para o container de login */
+#login-container {
+    background-color: #1f1f1f; /* Fundo mais escuro para o container */
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     width: 100%;
-    max-width: 400px;
+    max-width: 400px; /* Largura máxima do contêiner */
     text-align: center;
-    color: #e0e0e0; /* Texto claro */
+    
 }
 
-h1 {
+/* Estilo do título */
+#login-container h1 {
     margin-bottom: 20px;
-    color: #ffffff; /* Título branco */
+    font-size: 24px;
+    color: #ffffff;
 }
 
+/* Estilo para os grupos de input */
 .input-group {
     margin-bottom: 15px;
     text-align: left;
 }
 
-label {
-    display: block;
+.input-group label {
+    display: flex;
     margin-bottom: 5px;
-    color: #b0b0b0; /* Cor do texto dos labels */
+    color: #b3b3b3;
 }
 
-input {
-    width: 100%;
-    padding: 8px;
-    background-color: #3d3d3d; /* Fundo do input mais escuro */
-    border: 1px solid #555555; /* Borda mais escura */
-    border-radius: 4px;
-    font-size: 16px;
-    color: #e0e0e0; /* Texto claro */
+.input-group input {
+    width: calc(100% - 20px); /* Largura responsiva */
+    padding: 10px;
+    border: 1px solid #333;
+    border-radius: 20px;
+    background-color: #2a2a2a;
+    color: #fff;
 }
 
-input::placeholder {
-    color: #a0a0a0; /* Placeholder mais claro */
-}
-
-button {
+/* Estilo para o botão de login */
+.login-btn {
     width: 100%;
     padding: 10px;
-    background-color: #5a67d8; /* Botão azul/roxo escuro */
-    color: white;
     border: none;
-    border-radius: 4px;
+    margin-top: 15px;
+    border-radius: 10px;
+    background-color: #007bff; /* Cor azul para o botão */
+    color: white;
     font-size: 16px;
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #434190; /* Mudança de cor no hover do botão */
+.login-btn:hover {
+    background-color: #0056b3; /* Cor mais escura no hover */
 }
 
-/* Responsividade */
-@media (max-width: 600px) {
-    body {
-        padding: 5px;
-    }
-
-    .login-container {
-        padding: 15px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    }
-
-    input {
-        padding: 10px;
-        font-size: 14px;
-    }
-
-    button {
-        padding: 12px;
-        font-size: 14px;
-    }
-}
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-}
-
-th, td {
+/* Estilo para mensagem de erro */
+.error-message {
+    color: red;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
     padding: 10px;
-    border: 1px solid #ccc;
-    text-align: left;
-}
-
-th {
-    background-color: #f4f4f4;
-}
-
-button {
     margin: 20px 0;
-    padding: 10px 20px;
-    background-color: #5a67d8;
-    color: white;
-    border: none;
     border-radius: 5px;
-    cursor: pointer;
 }
-
-button:hover {
-    background-color: #434190;
+#dashboard-body{
+    font-family: Arial, sans-serif;
+    background-color: #7700ff;
+    display: inline;
+    
+}
+#dashboard-container{
+    background-color: #5eff00;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+#dashboard-title{
+    background-color: #f11629;
+    display: flex;
+}
+#dashboard-table{
+    border-radius: 10px;
+    background-color: #f7f30d;
 }
