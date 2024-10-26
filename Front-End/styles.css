@@ -1,20 +1,12 @@
 /* Estilo geral para toda a página */
 body {
-    display: block;
-    /* Usar flexbox para centralização */
-    justify-content: center;
-    /* Centraliza horizontalmente */
-    align-items: center;
-    /* Centraliza verticalmente */
-    height: 100vh;
-    /* Altura total da tela */
     background-color: #121212;
     /* Cor de fundo dark */
     color: #ffffff;
     /* Cor de texto claro */
     font-family: Arial, sans-serif;
-    margin: 0;
     /* Remove margens padrão */
+    margin: 0;
     text-align: left;
 }
 
@@ -139,7 +131,6 @@ h1 {
     margin: 0;
     float: right;
 }
-
 #Navigation li {
     float: right;
 }
@@ -231,4 +222,14 @@ td {
     padding: 10px 20px;
     border-radius: 5px;
     text-decoration: none;
+}
+#status {
+    text-decoration: none;
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    border-style: solid;
+    border: 1px;
+    border-radius: 1px;
+    background: #0056b3;
 }

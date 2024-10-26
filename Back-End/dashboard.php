@@ -59,7 +59,13 @@ $result = $stmt->get_result();
         <!-- Fim da Navegação -->
         <!-- Parte dos Chamados Abertos/Fechados/Todos -->
         
-        <div></div>
+        <div>
+            <ul id="status">
+                <li><a href="">Todos</a></li>
+                <li><a href=>Abertos</a></li>
+                <li><a href>Fechados</a></li>
+            </ul>
+        </div>
 
         <!-- Fim da Parte dos Chamados Abertos/Fechados/Todos -->
         <div id="MainOptions">
