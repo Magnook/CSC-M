@@ -57,6 +57,11 @@ $result = $stmt->get_result();
 
         </div>
         <!-- Fim da Navegação -->
+        <!-- Parte dos Chamados Abertos/Fechados/Todos -->
+        
+        <div></div>
+
+        <!-- Fim da Parte dos Chamados Abertos/Fechados/Todos -->
         <div id="MainOptions">
 
             <table id="Overview">
