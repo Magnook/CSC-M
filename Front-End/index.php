@@ -1,32 +1,25 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSC - Login</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body class="login-body"> <!-- Classe adicionada para o estilo -->
-    <div id="login-container"> <!-- ID para o contêiner -->
-        <h1>Central de Serviços Compartilhados</h1>
-        <?php
-        session_start();
-        if (isset($_SESSION['error'])) {
-            echo "<div class='error-message'>{$_SESSION['error']}</div>";
-            unset($_SESSION['error']); // Remove a mensagem após exibi-la
-        }
-        ?>
-        <form action="../Back-End/login.php" method="post">
-            <div class="input-group">
-                <label for="username">Nome</label>
-                <input type="text" id="username" name="username" required>
-            </div>
-            <div class="input-group">
-                <label for="password">Senha</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <button type="submit" class="login-btn">Entrar</button>
-        </form>        
-    </div>
-</body>
-</html>
+<?php
+session_start();
+include 'db.php'; 
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $nome = $_POST['nome']; 
+    $senha = $_POST['senha']; 
+
+    // Prepare e execute a consulta
+    $stmt = $conn->prepare("SELECT * FROM usuarios WHERE nome = ? AND senha = ?");
+    $stmt->bind_param("ss", $nome, $senha);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows === 1) {
+        $user = $result->fetch_assoc();
+        $_SESSION['usuario_id'] = $user['id']; // Guardar o ID do usuário
+        $_SESSION['tipo_usuario'] = $user['tipo']; // Guardar o tipo de usuário, se aplicável
+        header("Location: dashboard.php"); // Redirecionar para o dashboard
+        exit();
+    } else {
+        echo "Usuário ou senha inválidos.";
+    }
+}
+?>
