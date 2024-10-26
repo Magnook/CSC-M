@@ -114,8 +114,7 @@ body {
     background-size: contain;
     background-repeat: no-repeat;
     width: 100px;
-    /* Tamanho desejado */
-    height: 70px;
+    height: 50px;
 }
 
 h1 {
@@ -126,7 +125,6 @@ h1 {
 /* Navegação */
 #Navigation {
     display: flex;
-    justify-content: center;
     /* Centraliza os itens na linha */
     background-color: #1f1f1f;
     padding: 10px;
@@ -152,10 +150,73 @@ h1 {
     font-weight: bold;
     padding: 5px 10px;
     border-radius: 4px;
-    transition: background-color 0.3s;
+    transition: background-color 0.4s;
 }
 
 #Navigation ul li a:hover {
     background-color: #0056b3;
     color: white;
+}
+
+.titulo {
+    text-decoration: none;
+    /* color: #FFFFFF; Branco */
+    color: #D3D3D3;
+    /*Cinza Claro */
+    /* color: #FFD700; Amarelo Claro */
+    /* color: #FFA500; Laranja Suave */
+    font-weight: bold;
+}
+
+#Overview {
+    justify-content: space-between;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#Overview th,
+td {
+    padding: 1px;
+    margin: 1px;
+    text-align: center;
+    border-bottom: 1px solid #D3D3D3;
+}
+
+#Overview tr:hover {
+    background-color: #007bff;
+    /* Cor de fundo ao passar o mouse */
+}
+
+.chamado-details {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.chamado-details h2 {
+    margin-bottom: 10px;
+}
+
+.chamado-details .row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.chamado-details .col-md-6 {
+    flex: 0 0 50%;
+    margin-bottom: 10px;
+}
+
+.chamado-details p {
+    margin-bottom: 5px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
 }

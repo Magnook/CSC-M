@@ -36,6 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,6 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- CKEditor Script -->
     <script src="https://cdn.ckeditor.com/4.22.0/standard/ckeditor.js"></script>
 </head>
+
 <body>
     <h2>Novo Chamado</h2>
     <form action="newcall.php" method="POST" enctype="multipart/form-data">
@@ -95,4 +97,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         CKEDITOR.replace('assunto');
     </script>
 </body>
+
 </html>

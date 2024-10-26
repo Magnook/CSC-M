@@ -35,24 +35,60 @@ $result = $stmt->get_result();
 </head>
 
 <body>
-<div id="Central">
-    <!-- Cabeçalho -->
-    <div id="Header">
-        <h1 class="CompanyName">
-            <a href="#">Central de Serviços</a>
-        </h1>
-        <div id="Logo"></div>
-    </div>
+    <div id="Central">
+        <!-- Cabeçalho -->
+        <div id="Header">
+            <h1 class="CompanyName">
+                <a href="#" class="titulo">Central de Serviços</a>
+            </h1>
+            <div id="Logo"></div>
+        </div>
 
-    <!-- Navegação -->
-    <div id="Navigation">
-        <ul>
-            <li><a href="../Front-End/newcall.php" accesskey="n" title="Novo Chamado (n)">Novo Chamado</a></li>
-            <li><a href="#" accesskey="m" title="Meus Chamados (m)">Meus Chamados</a></li>
-            <li><a href="#" accesskey="p" title="Pesquisar Chamados (p)">Pesquisar Chamados</a></li>
-        </ul>
+        <!-- Navegação -->
+        <div id="Navigation">
+            <ul>
+                <li><a href="../Front-End/newcall.php" accesskey="n" title="Novo Chamado (n)">Novo Chamado</a></li>
+                <li><a href="#" accesskey="m" title="Meus Chamados (m)">Meus Chamados</a></li>
+                <li><a href="#" accesskey="p" title="Pesquisar Chamados (p)">Pesquisar Chamados</a></li>
+            </ul>
+        </div>
+        <!-- Fim da Navegação -->
+        <div id="MainOptions">
+
+            <table id="Overview">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Título</th>
+                        <th>Assunto</th>
+                        <th>Data de Criação</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    // Verifica se há chamados
+                    if ($result->num_rows > 0) {
+                        // Loop pelos chamados e exibe
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<tr onclick=\"window.location='detalhes.php?id={$row['id']}';\" style='cursor: pointer;'>
+                <td>{$row['id']}</td>
+                <td>{$row['title']}</td>
+                <td>{$row['assunto']}</td>
+                <td>{$row['created_at']}</td>
+                <td>{$row['status']}</td>
+              </tr>";
+                        }
+                    } else {
+                        echo "<tr><td colspan='5'>Nenhum chamado encontrado.</td></tr>";
+                    }
+                    ?>
+                </tbody>
+
+
+            </table>
+        </div>
     </div>
-</div>
 
 </body>
 
