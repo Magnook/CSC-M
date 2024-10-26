@@ -1,25 +1,35 @@
 /* Estilo geral para toda a página */
 body {
-    display: flex; /* Usar flexbox para centralização */
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
-    height: 100vh; /* Altura total da tela */
-    background-color: #121212; /* Cor de fundo dark */
-    color: #ffffff; /* Cor de texto claro */
+    display: block;
+    /* Usar flexbox para centralização */
+    justify-content: center;
+    /* Centraliza horizontalmente */
+    align-items: center;
+    /* Centraliza verticalmente */
+    height: 100vh;
+    /* Altura total da tela */
+    background-color: #121212;
+    /* Cor de fundo dark */
+    color: #ffffff;
+    /* Cor de texto claro */
     font-family: Arial, sans-serif;
-    margin: 0; /* Remove margens padrão */
+    margin: 0;
+    /* Remove margens padrão */
+    text-align: left;
 }
 
 /* Estilo para o container de login */
 #login-container {
-    background-color: #1f1f1f; /* Fundo mais escuro para o container */
+    background-color: #1f1f1f;
+    /* Fundo mais escuro para o container */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     width: 100%;
-    max-width: 400px; /* Largura máxima do contêiner */
+    max-width: 400px;
+    /* Largura máxima do contêiner */
     text-align: center;
-    
+
 }
 
 /* Estilo do título */
@@ -42,7 +52,8 @@ body {
 }
 
 .input-group input {
-    width: calc(100% - 20px); /* Largura responsiva */
+    width: calc(100% - 20px);
+    /* Largura responsiva */
     padding: 10px;
     border: 1px solid #333;
     border-radius: 20px;
@@ -57,14 +68,16 @@ body {
     border: none;
     margin-top: 15px;
     border-radius: 10px;
-    background-color: #007bff; /* Cor azul para o botão */
+    background-color: #007bff;
+    /* Cor azul para o botão */
     color: white;
     font-size: 16px;
     cursor: pointer;
 }
 
 .login-btn:hover {
-    background-color: #0056b3; /* Cor mais escura no hover */
+    background-color: #0056b3;
+    /* Cor mais escura no hover */
 }
 
 /* Estilo para mensagem de erro */
@@ -76,22 +89,73 @@ body {
     margin: 20px 0;
     border-radius: 5px;
 }
-#dashboard-body{
-    font-family: Arial, sans-serif;
-    background-color: #7700ff;
-    display: inline;
-    
+
+#div-chamado h2 {
+    text-align: center;
+
 }
-#dashboard-container{
-    background-color: #5eff00;
-    margin-bottom: 20px;
-    color: #ffffff;
-}
-#dashboard-title{
-    background-color: #f11629;
+
+.login-body {
     display: flex;
 }
-#dashboard-table{
-    border-radius: 10px;
-    background-color: #f7f30d;
+
+#Header {
+    display: flex;
+    justify-content: space-between;
+    /* Espaça os elementos nas extremidades */
+    align-items: center;
+    padding: 21px 34px 18px;
+    background: linear-gradient(to bottom, #0056b3 0%, #007bff 100%);
+    border-bottom: 1px solid #007bff;
+}
+
+#Logo {
+    background-image: url(../assets/logo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100px;
+    /* Tamanho desejado */
+    height: 70px;
+}
+
+h1 {
+    font-size: 21px;
+    font-weight: bold;
+}
+
+/* Navegação */
+#Navigation {
+    display: flex;
+    justify-content: center;
+    /* Centraliza os itens na linha */
+    background-color: #1f1f1f;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+#Navigation ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    /* Espaçamento entre os itens */
+    padding: 0;
+    margin: 0;
+}
+
+#Navigation ul li {
+    margin: 0;
+}
+
+#Navigation ul li a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+#Navigation ul li a:hover {
+    background-color: #0056b3;
+    color: white;
 }

@@ -23,50 +23,37 @@ $stmt->execute();
 $result = $stmt->get_result();
 ?>
 
+
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard de Chamados</title>
+    <title>Meus Chamados</title>
     <link rel="stylesheet" href="../Front-End/styles.css">
 </head>
-<body id="dashboard-body">
-    <div id="dashboard-container">
-        <h2 id="dashboard-title">Dashboard de Chamados</h2>
-        
-        <form method="GET" action="">
-            <label for="status">Filtrar por Status:</label>
-            <select id="status" name="status">
-                <option value="todos">Todos</option>
-                <option value="aberto">Abertos</option>
-                <option value="fechado">Fechados</option>
-            </select>
-            <button type="submit">Filtrar</button>
-        </form>
 
-        <table id="dashboard-table">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Título</th>
-                    <th>Status</th>
-                    <th>Data de Criação</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php while ($row = $result->fetch_assoc()) { ?>
-                <tr>
-                    <td><?php echo $row['id']; ?></td>
-                    <td><?php echo $row['title']; ?></td>
-                    <td><?php echo $row['status']; ?></td>
-                    <td><?php echo $row['created_at']; ?></td>
-                </tr>
-                <?php } ?>
-            </tbody>
-        </table>
-
-        <button onclick="window.location.href='../Front-End/newcall.php'">Abrir Novo Chamado</button>
+<body>
+<div id="Central">
+    <!-- Cabeçalho -->
+    <div id="Header">
+        <h1 class="CompanyName">
+            <a href="#">Central de Serviços</a>
+        </h1>
+        <div id="Logo"></div>
     </div>
+
+    <!-- Navegação -->
+    <div id="Navigation">
+        <ul>
+            <li><a href="../Front-End/newcall.php" accesskey="n" title="Novo Chamado (n)">Novo Chamado</a></li>
+            <li><a href="#" accesskey="m" title="Meus Chamados (m)">Meus Chamados</a></li>
+            <li><a href="#" accesskey="p" title="Pesquisar Chamados (p)">Pesquisar Chamados</a></li>
+        </ul>
+    </div>
+</div>
+
 </body>
+
 </html>
