@@ -46,11 +46,15 @@ $result = $stmt->get_result();
 
         <!-- Navegação -->
         <div id="Navigation">
-            <ul>
+            <ul id="Painel">
                 <li><a href="../Front-End/newcall.php" accesskey="n" title="Novo Chamado (n)">Novo Chamado</a></li>
                 <li><a href="#" accesskey="m" title="Meus Chamados (m)">Meus Chamados</a></li>
                 <li><a href="#" accesskey="p" title="Pesquisar Chamados (p)">Pesquisar Chamados</a></li>
             </ul>
+            <ul>
+                <li class="Lateral"><a href="#">Configurações</a></li>
+            </ul>
+
         </div>
         <!-- Fim da Navegação -->
         <div id="MainOptions">

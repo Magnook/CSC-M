@@ -134,28 +134,36 @@ h1 {
 #Navigation ul {
     list-style: none;
     display: flex;
-    gap: 20px;
     /* Espaçamento entre os itens */
     padding: 0;
     margin: 0;
+    float: right;
 }
 
-#Navigation ul li {
-    margin: 0;
+#Navigation li {
+    float: right;
 }
 
 #Navigation ul li a {
+    font-size: 14px;
+    font-style: italic;
+    font-family: Arial, Helvetica, sans-serif;
     text-decoration: none;
     color: #007bff;
     font-weight: bold;
     padding: 5px 10px;
     border-radius: 4px;
     transition: background-color 0.4s;
+    margin: 0;
 }
 
 #Navigation ul li a:hover {
     background-color: #0056b3;
     color: white;
+}
+
+#Navigation .Lateral {
+    float: right;
 }
 
 .titulo {
@@ -169,7 +177,7 @@ h1 {
 }
 
 #Overview {
-    justify-content: space-between;
+    justify-content: center;
     border-collapse: collapse;
     width: 100%;
 }
@@ -179,7 +187,11 @@ td {
     padding: 1px;
     margin: 1px;
     text-align: center;
-    border-bottom: 1px solid #D3D3D3;
+    font-size: 15px;
+    border-style: inherit;
+    border-bottom: 2px solid #D3D3D3;
+    border-top: 2px solid #D3D3D3;
+
 }
 
 #Overview tr:hover {
