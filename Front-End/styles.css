@@ -1,37 +1,37 @@
 /* Estilo geral para toda a página */
-body {
-    background-color: #121212;
-    /* Cor de fundo dark */
-    color: #ffffff;
-    /* Cor de texto claro */
-    font-family: Arial, sans-serif;
-    /* Remove margens padrão */
+* {
+    padding: 0;
     margin: 0;
-    text-align: left;
 }
 
-/* Estilo para o container de login */
+body {
+    background: #121212;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
 #login-container {
     background-color: #1f1f1f;
-    /* Fundo mais escuro para o container */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     width: 100%;
     max-width: 400px;
-    /* Largura máxima do contêiner */
     text-align: center;
 
 }
 
-/* Estilo do título */
 #login-container h1 {
     margin-bottom: 20px;
     font-size: 24px;
     color: #ffffff;
 }
 
-/* Estilo para os grupos de input */
 .input-group {
     margin-bottom: 15px;
     text-align: left;
@@ -45,7 +45,6 @@ body {
 
 .input-group input {
     width: calc(100% - 20px);
-    /* Largura responsiva */
     padding: 10px;
     border: 1px solid #333;
     border-radius: 20px;
@@ -53,7 +52,6 @@ body {
     color: #fff;
 }
 
-/* Estilo para o botão de login */
 .login-btn {
     width: 100%;
     padding: 10px;
@@ -61,7 +59,6 @@ body {
     margin-top: 15px;
     border-radius: 10px;
     background-color: #007bff;
-    /* Cor azul para o botão */
     color: white;
     font-size: 16px;
     cursor: pointer;
@@ -69,10 +66,8 @@ body {
 
 .login-btn:hover {
     background-color: #0056b3;
-    /* Cor mais escura no hover */
 }
 
-/* Estilo para mensagem de erro */
 .error-message {
     color: red;
     background-color: #f8d7da;
@@ -89,12 +84,13 @@ body {
 
 .login-body {
     display: flex;
+    justify-content: center;
+    padding-top: 250px;
 }
 
 #Header {
     display: flex;
     justify-content: space-between;
-    /* Espaça os elementos nas extremidades */
     align-items: center;
     padding: 21px 34px 18px;
     background: linear-gradient(to bottom, #0056b3 0%, #007bff 100%);
@@ -115,47 +111,52 @@ h1 {
 }
 
 /* Navegação */
-#Navigation {
-    display: flex;
-    /* Centraliza os itens na linha */
-    background-color: #1f1f1f;
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
-}
-
-#Navigation ul {
-    list-style: none;
-    display: flex;
-    /* Espaçamento entre os itens */
-    padding: 0;
-    margin: 0;
-    float: right;
-}
-#Navigation li {
-    float: right;
-}
-
-#Navigation ul li a {
-    font-size: 14px;
-    font-style: italic;
-    font-family: Arial, Helvetica, sans-serif;
+.Navigation {
+    background: #0056b3;
     text-decoration: none;
-    color: #007bff;
-    font-weight: bold;
+    font-style: italic;
+    display: flow-root;
+}
+
+.Painel li {
+    float: left;
+    gap: 20px;
+    list-style: none;
     padding: 5px 10px;
-    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
     transition: background-color 0.4s;
     margin: 0;
+    text-decoration: none;
+    text-decoration-line: none;
 }
 
-#Navigation ul li a:hover {
-    background-color: #0056b3;
+#Lateral {
+    float: right;
+    gap: 20px;
+    list-style: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.4s;
+    margin: 0;
+    text-decoration: none;
+    text-decoration-line: none;
+}
+
+.Navigation ul li a:hover {
+    background-color: #3f2f90;
+    transition: background-color 0.3s;
     color: white;
 }
 
-#Navigation .Lateral {
-    float: right;
+#Lateral a:hover {
+    background-color: #3f2f90;
+    transition: background-color 0.3s;
+    color: white;
 }
+
+/* Fim da Navegação */
 
 .titulo {
     text-decoration: none;
@@ -187,7 +188,6 @@ td {
 
 #Overview tr:hover {
     background-color: #007bff;
-    /* Cor de fundo ao passar o mouse */
 }
 
 .chamado-details {
@@ -223,13 +223,14 @@ td {
     border-radius: 5px;
     text-decoration: none;
 }
+
 #status {
     text-decoration: none;
     list-style: none;
-    display: flex;
+    display: inline;
     gap: 15px;
     border-style: solid;
     border: 1px;
     border-radius: 1px;
-    background: #0056b3;
+    background-color: #0056b3;
 }
